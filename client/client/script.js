@@ -22,26 +22,25 @@ checkinElem.onchange = function () {
 
 window.addEventListener("load", function () {
     function sendData() {
-        var XHR = new XMLHttpRequest();
+        var xhr = new XMLHttpRequest();
         var dateDebut = document.getElementById("checkin-date");
         var dateFin = document.getElementById("checkout-date");
-        XHR.addEventListener("load", function (event) {
+        xhr.addEventListener("load", function (event) {
             console.log(event.target.responseText);
         });
 
-        XHR.addEventListener("error", function (event) {
+        xhr.addEventListener("error", function (event) {
             alert('Oups! Quelque chose s\'est mal passé.');
         });
         var param = "?checkInDate=" + dateDebut + "&checkOutDate" + dateFin;
-        XHR.open("GET", "https://example.com/cors" + param + "", true);
+        xhr.open("GET", "https://example.com/cors" + param + "", true);
 
-        XHR.send(null);
+        xhr.send(null);
     }
 
     var form = document.getElementById("reservation");
 
 
-    // … et prenez en charge l'événement submit.
     form.addEventListener("submit", function (event) {
         event.preventDefault();
         sendData();
