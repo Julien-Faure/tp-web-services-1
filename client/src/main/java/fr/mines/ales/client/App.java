@@ -40,9 +40,10 @@ public class App {
         try {
             GregorianCalendar d1 = new GregorianCalendar(2014, Calendar.FEBRUARY, 11);
             GregorianCalendar d2 = new GregorianCalendar(2014, Calendar.FEBRUARY, 19);
-            XMLGregorianCalendar xmdDate1 = DatatypeFactory.newInstance().newXMLGregorianCalendar(d1);
-            XMLGregorianCalendar xmdDate2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(d2);
-            rs.bookRoom(Integer.parseInt(in), xmdDate1, xmdDate2);
+            XMLGregorianCalendar xmlDate1 = DatatypeFactory.newInstance().newXMLGregorianCalendar(d1);
+            XMLGregorianCalendar xmlDate2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(d2);
+
+            rs.bookRoom(Integer.parseInt(in), xmlDate1, xmlDate2);
             System.out.println("La chambre " + in + " a été réservée.");
         } catch (NumberFormatException e) {
             System.out.println("Veuillez-nous donner un numéro de chambre.");
