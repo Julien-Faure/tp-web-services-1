@@ -5,7 +5,7 @@
 <web-app>
 <servlet>
 <!--  <servlet-name>roomService</servlet-name>-->
-<!--  <servlet-class>fr.mines.ales.rest.hotel.RoomServiceImpl</servlet-class>-->
+<!--  <servlet-class>fr.mines.ales.rest.hotel.services.AvailabilityServiceImpl</servlet-class>-->
   <servlet-name>RESTWS</servlet-name>
   <servlet-class>org.glassfish.jersey.servlet.ServletContainer</servlet-class>
   <init-param>
