@@ -1,9 +1,13 @@
 package fr.mines.ales.web.services.tp.entities;
 
+import java.util.Date;
+
 public class Room {
     private int id;
     private double price;
     private RoomTypeEnum roomType;
+    private Date startDate;
+    private Date endDate;
 
     public int getId() {
         return id;
@@ -27,5 +31,21 @@ public class Room {
 
     public void setRoomType(RoomTypeEnum roomType) {
         this.roomType = roomType;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 }
