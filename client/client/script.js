@@ -31,15 +31,15 @@ window.addEventListener("load", function () {
                     "columns": [
                         {"title": "Id", "data": "id"},
                         {"title": "Prix", "data": "price"},
-                        {"title": "Type", "data": "type"},
+                        {"title": "Type", "data": "roomType"},
                         {
-                            "title": "Date de départ", "data": "departureDate", "render": function (data) {
+                            "title": "Date de départ", "data": "startDate", "render": function (data) {
                                 var date = new Date(data)
                                 return date.toLocaleString();
                             }
                         },
                         {
-                            "title": "Date d'arrivée", "data": "arrivalDate", "render": function (data) {
+                            "title": "Date d'arrivée", "data": "endDate", "render": function (data) {
                                 var date = new Date(data)
                                 return date.toLocaleString();
                             }
@@ -115,8 +115,9 @@ window.addEventListener("load", function () {
         xhr.addEventListener("error", function (event) {
             alert('Erreur lors de la requête API.');
         });
-        var param = "?checkInDate=" + dateDebut + "&checkOutDate" + dateFin;
-        xhr.open("GET", "https://example.com/cors" + param + "", true);
+        // var param = "?checkInDate=" + dateDebut + "&checkOutDate" + dateFin;
+        // xhr.open("GET", "https://example.com/cors" + param + "", true);
+        xhr.open("GET", "http://localhost:8080/rest-api/api/availability/all", true);
         xhr.setRequestHeader("Content-type", "application/json");
         xhr.send(null);
     }

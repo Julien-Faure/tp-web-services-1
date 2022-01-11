@@ -14,6 +14,7 @@ public class RestApplication extends Application {
         fr.mines.ales.rest.hotel.Application.start();
         Set<Class<?>> classes = new HashSet<>();
         classes.add(AvailabilityServiceImpl.class);
+        classes.add(CORSFilter.class);
         return classes;
     }
 }
