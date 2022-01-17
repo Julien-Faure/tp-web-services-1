@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="google-signin-client_id" content="224258289902-cfpdaenlg0c7p4a3mtqrklq4rjk9g3mq.apps.googleusercontent.com">
+    <meta name="google-signin-client_id"
+          content="224258289902-cfpdaenlg0c7p4a3mtqrklq4rjk9g3mq.apps.googleusercontent.com">
     <title>TP Web service - Reservation</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <!--    <script src="https://apis.google.com/js/platform.js" async defer></script>-->
+    <script src="js/frameworks/keycloak-adapter/keycloak.js"></script>
 </head>
 <body>
-<div class="g-signin2" data-onsuccess="onSignIn">
+<!--<div class="g-signin2" data-onsuccess="onSignIn"></div>-->
 <form id="reservation">
     <div class="elem-group inlined">
         <label for="checkin-date">Date d'arrivée</label>

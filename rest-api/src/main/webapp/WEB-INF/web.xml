@@ -1,6 +1,6 @@
 <!DOCTYPE web-app PUBLIC
- "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
- "http://java.sun.com/dtd/web-app_2_3.dtd" >
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
 
 <web-app>
 <servlet>
@@ -19,24 +19,23 @@
     <url-pattern>/*</url-pattern>
   </servlet-mapping>
 
-  <security-constraint>
-    <web-resource-collection>
-      <web-resource-name>Customers</web-resource-name>
-      <url-pattern>/*</url-pattern>
-    </web-resource-collection>
-    <auth-constraint>
-      <role-name>infres-reader</role-name>
-    </auth-constraint>
-  </security-constraint>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Customers</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>infres-reader</role-name>
+        </auth-constraint>
+    </security-constraint>
 
-  <login-config>
-    <auth-method>BASIC</auth-method>
-    <realm-name>this is ignored currently</realm-name>
-  </login-config>
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>this is ignored currently</realm-name>
+    </login-config>
 
-  <security-role>
-    <role-name>infres-reader</role-name>
-  </security-role>
-
+    <security-role>
+        <role-name>infres-reader</role-name>
+    </security-role>
 
 </web-app>

@@ -20,6 +20,21 @@ checkinElem.onchange = function () {
     checkoutElem.setAttribute("min", this.value);
 }
 
+let TOKEN = undefined;
+
+var keycloak = new Keycloak({
+    url: 'http://localhost:8080/auth',
+    realm: 'infres',
+    clientId: 'api-token-provider'
+});
+keycloak.init({onLoad: 'login-required'}).then(function (authenticated) {
+    console.log("TOKEN : " + keycloak.token);
+    TOKEN = keycloak.token;
+}).catch(function (e) {
+    console.error(e)
+    alert('failed to initialize : ' + e);
+});
+
 window.addEventListener("load", function () {
     function createTable(jsonData) {
         $(document).ready(function () {
@@ -117,9 +132,10 @@ window.addEventListener("load", function () {
         });
         // var param = "?checkInDate=" + dateDebut + "&checkOutDate" + dateFin;
         // xhr.open("GET", "https://example.com/cors" + param + "", true);
-        xhr.open("GET", "http://localhost:8080/rest-api/api/availability/all", true);
+        xhr.open("GET", "http://127.0.0.1:8082/rest-api/api/availability/all", true);
         xhr.setRequestHeader("Content-type", "application/json");
-        xhr.send(null);
+        xhr.setRequestHeader("Authorization", "Bearer " + TOKEN)
+        xhr.send({});
     }
 
     var form = document.getElementById("reservation");
