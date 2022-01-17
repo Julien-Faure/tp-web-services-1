@@ -1,0 +1,80 @@
+swagger: "2.0"
+info:
+  description: "TP web service avancé"
+  version: "1.0.0"
+  title: "Room and flight availability"
+basePath: "/rest-api"
+paths:
+  /availability/all:
+    get:
+      tags:
+      - "Availability"
+      summary: "finds all available flights and room"
+      description: "finds all available flights and room"
+      operationId: "findAvailablility"
+      produces: 
+      - "application/json"
+      responses:
+        "200":
+          description: "Successful operation"
+          schema:
+            $ref: "#/definitions/Availability"
+        "401":
+          description: "Not identified"
+        "403":
+          description: "Forbidden"
+      security:
+        - basicAuth: []
+securityDefinitions:
+  basicAuth:
+    type: basic
+definitions:
+  Flight:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      departureLocation:
+        type: "string"
+      arrivalLocation:
+        type: "string"
+      departureDate:
+        type: "string"
+        format: "date-time"
+      arrivalDate:
+        type: "string"
+        format: "date-time"
+  Room:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      roomType:
+        type: "string"
+        description: "Order Status"
+        enum:
+        - "BASIC"
+        - "MIDDLE"
+        - "HIGH"
+      price:
+        type: "number"
+        format: "currency"
+      startDate:
+        type: "string"
+        format: "date-time"
+      endDate:
+        type: "string"
+        format: "date-time"
+  Availability:
+    type: "object"
+    properties:
+      flightList:
+        type: "array"
+        items:
+          $ref: "#/definitions/Flight"
+      roomList:
+        type: "array"
+        items: 
+          $ref: "#/definitions/Room"
