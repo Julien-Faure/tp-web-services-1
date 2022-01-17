@@ -2,6 +2,6 @@
   "realm": "infres",
   "auth-server-url": "http://localhost:8080/auth/",
   "ssl-required": "external",
-  "resource": "api-token-provider",
+  "resource": "api-rest",
   "public-client": true
 }
