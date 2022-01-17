@@ -1,0 +1,15 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+User -> App : Login
+App --> User : Redirect
+User -> Keycloak : Authenticate
+Keycloak --> User : Redirect (with JWT)
+User -> App : Request (with access token)
+App -> REST_API : Request (with access token)
+REST_API -> REST_API : Check token signature with Keycloak public key
+REST_API --> App : Response
+App --> User : Response
+
+
+@enduml
