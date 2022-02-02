@@ -1,0 +1,17 @@
+@startuml
+
+actor User as user
+participant Gravitee as g
+participant "REST API" as r
+
+user -> g : Request
+activate g
+g -> g : Check user rights and limit
+g -> r : Request
+r --> g : Result
+g --> user : Result
+deactivate g
+
+
+
+@enduml
